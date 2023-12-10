@@ -125,13 +125,37 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  items:
-                    type: array
+                # type: object
+                # properties:
+                #   items:
+                #     type: array
+                #     items:
+                #       $ref: '#/components/schemas/Job'
+              examples:
+                with-some-data:
+                  summary: With some data
+                  value:
                     items:
-                      $ref: '#/components/schemas/Job'
-                      
+                    - id: 123
+                      create_user_id: 345
+                      start_time: 2023-12-31T12:12:12Z
+                      end_time: 2024-01-05T12:12:12Z
+                      dog:
+                        name: Fido
+                        age: 3
+                        breed: Doberman
+                        size: medium
+                      activity: walk
+                    - id: 234
+                      create_user_id: 345
+                      start_time: 2024-01-10T12:12:12Z
+                      end_time: 2024-01-15T12:12:12Z
+                      dog:
+                        name: Rex
+                        age: 2
+                        breed: Rottweiler
+                        size: large
+                      activity: sit
   /jobs/{id}:
     parameters:
       - schema: 
