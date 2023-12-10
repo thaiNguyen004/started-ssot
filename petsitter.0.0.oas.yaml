@@ -3,6 +3,31 @@ info:
   title: PetSitter API
   version: "0.1"
 paths: 
+  /:
+    get:
+      responses:
+        '200':
+          description: View Examples
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name: 
+                    type: string
+                  age:
+                    type: integer
+              examples:
+                olivia-rodrigo: 
+                  summary: Using Olivia Rodrigo as example data
+                  value:
+                    name: Olivia-Rodrigo
+                    age: 20
+                thai-nguyen: 
+                  summary: Using Thai Nguyen as example data
+                  value:
+                    name: Thai Nguyen
+                    age: 21
   /users:
     post:
       summary: Register User
