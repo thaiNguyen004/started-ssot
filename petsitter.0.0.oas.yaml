@@ -101,7 +101,67 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Job'
-          
+  /users/{id}/job-applications:
+    parameters:
+      - schema:
+          type: integer
+        name: id
+        in: path
+        required: true
+    get:
+      summary: List Application for User
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                two-items:
+                  summary: Two Job Applications
+                  value:
+                    items:
+                    - id: 123
+                      user_id: 123
+                      job_id: 123
+                      status: PENDING
+                    - id: 123
+                      user_id: 123
+                      job_id: 123
+                      status: COMPLETE
+                empty:
+                  summary: Zero Job Applications
+                  value:
+                    items: []
+                many:
+                  summary: Many Job Applications
+                  value:
+                    item:
+                    - id: '123'
+                      user_id: '123'
+                      job_id: '123'
+                      status: PENDING
+                    - id: '123'
+                      user_id: '123'
+                      job_id: '123'
+                      status: PENDING
+                    - id: '123'
+                      user_id: '123'
+                      job_id: '123'
+                      status: PENDING
+                    - id: '123'
+                      user_id: '123'
+                      job_id: '123'
+                      status: PENDING
+                    - id: '123'
+                      user_id: '123'
+                      job_id: '123'
+                      status: PENDING
+                    - id: '123'
+                      user_id: '123'
+                      job_id: '123'
+                      status: PENDING
   /jobs:
     post:
       summary: Create Job
